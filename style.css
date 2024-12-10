@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --gradient: linear-gradient(to right, blue -30%, hotpink 100%);
+    --light: #f8f9fa;
+    --dark: #212529;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--light) !important;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    transition: 0.3s ease;
+}
+body.dark {
+    background-color: var(--dark) !important;
+}
+
+.page-section {
+    scroll-margin-top: 56px;
+}
+
+.navbar {
+    overflow: hidden;
+
+    .container {
+        a.navbar-brand {
+            font-family: 'Montserrat';
+            font-weight: bold;
+        }
+        
+        button.navbar-toggler {
+            border: none;
+            box-shadow: none;
+        }
+
+        ul {
+            li {
+                a {
+                    font-family: 'Montserrat';
+                    font-weight: 900;
+                    position: relative;
+                    transition: 0.3s ease;
+                }
+                a.active {
+                    color: navy;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 768px) {
+    .navbar {
+        .container {
+            ul {
+                li {
+                    a.active {
+                        color: initial;
+                    }
+                    a::after {
+                        content: '';
+                        position: absolute;
+                        height: 6px;
+                        width: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: navy;
+                        bottom: -10px;
+                        transition: 0.3s ease;
+                    }
+                    a.active::after, a:hover::after {
+                        width: calc(100% + 2px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+header {
+    .container-fluid {
+        display: flex;
+        justify-content: center;
+        gap: 35px;
+        align-items: center;
+        font-family: 'Montserrat';
+        
+        img {
+            height: 150px;
+        }
+
+        .text {
+            h1 {
+                font-size: 60px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            p {
+                text-align: end;
+                font-weight: bold;
+                margin: 0;
+            }
+        }
+    }
+}
+
+#about {
+    .container {
+        .row {
+            .col-lg-6 {
+                background: var(--gradient);
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+
+                p {
+                    font-family: 'Montserrat';
+                    font-weight: bold;
+                    color: var(--light);
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+#levels {
+    background: navy;
+    .container {
+        .row {
+            .col-lg-4 {
+                text-align: center;
+                font-family: 'Montserrat';
+                font-weight: bold;
+                color: var(--light);
+
+                h2 {
+                    font-weight: 1000;
+                }
+                h4 {
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+}
+
+#interest {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/mohammad-rahmani-8qEB0fTe9Vw-unsplash.jpg') center/cover no-repeat;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+
+            img {
+                height: 200px;
+            }
+            
+
+            .qrcode {
+                height: 200px;
+                width: 200px;
+                background: url('images/frame.png') center/cover no-repeat;
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+
+                p {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    color: var(--light);
+                    font-family: 'Montserrat';
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 25px;
+                    height: 100%;
+                    width: 100%;
+                    background: rgba(0, 0, 0, 0.75);
+                    transition: 0.3s ease;
+                }
+            }
+            .qrcode:hover {
+                p {
+                    opacity: 1;
+                }
+            }
+        }
+        .bottom {
+            display: flex;
+            justify-content: center;
+
+            a {
+                font-family: 'Montserrat';
+                font-weight: bold;
+                text-decoration: none;
+                color: var(--light);
+                font-size: 25px;
+                position: relative;
+            }
+            a::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 3px;
+                background: var(--light);
+                left: 0;
+                bottom: -3px;
+                border-radius: 10px;
+                transition: 0.3s ease;
+            }
+            a:hover::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+div.dark-mode-toggler {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: var(--light);
+    transition: 0.3s ease;
+    bottom: 15px;
+    right: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        fill: var(--dark);
+        transition: 0.3s ease;
+    }
+}
+div.dark-mode-toggler.dark {
+    background-color: var(--dark);
+
+    svg {
+        fill: var(--light);
+    }
+}
+div.dark-mode-toggler:hover {
+    cursor: pointer;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+.appear {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
