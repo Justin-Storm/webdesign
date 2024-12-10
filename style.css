@@ -95,6 +95,7 @@ header {
         gap: 35px;
         align-items: center;
         font-family: 'Montserrat';
+        flex-wrap: wrap;
         
         img {
             height: 150px;
@@ -110,6 +111,17 @@ header {
                 text-align: end;
                 font-weight: bold;
                 margin: 0;
+            }
+        }
+    }
+}
+@media (max-width: 456px) {
+    header {
+        .container-fluid {
+            .text {
+                h1 {
+                    font-size: 45px;
+                }
             }
         }
     }
