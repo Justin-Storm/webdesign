@@ -197,6 +197,7 @@ header {
                 position: relative;
                 overflow: hidden;
                 cursor: pointer;
+                text-decoration: none;
 
                 p {
                     display: flex;
